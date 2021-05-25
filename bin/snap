@@ -1,0 +1,120 @@
+#!/bin/bash
+xserver=1
+shotdir="$HOME/doc/pix/sht"
+dateline="_$(date +'%H%M%S-%Y%m%d')"
+tempfile="snap"
+
+main() {
+    actions=(
+        "clip"
+        "print"
+        "shot"
+        "animate"
+        "record"
+    )
+
+    action="$(printf '%s\n' "${actions[@]}" | \
+        dmenu -p snap -l 5 \
+        )"
+
+    if [ $xserver == 0 ]; then
+        case "$action" in
+
+            "shot" )
+                tempfile="$shotdir/shot_$dateline.png"
+                grim -c "$tempfile"
+                ;;
+
+            "clip" )
+                tempfile="$shotdir/clip_$dateline.png"
+                grim -g "$(slurp)" "$tempfile" ||
+                    werbe "err: selection cancelled" \
+                    "aborting snap" \
+                return 1
+                ;;
+
+            "print" )
+                tempfile="$shotdir/print_$dateline.png"
+                grim "$tempfile"
+                ;;
+
+            "animate" )
+                tempfile="$shotdir/anim_$dateline.gif"
+                # gifsicle
+                werbe "err: animate not implemented,"\
+                    "aborting snap"
+                return 1
+                ;;
+
+            "record" )
+                tempfile="$shotdir/record_$dateline.mp4"
+                # ffmpeg / wrobs
+                werbe "err: record not implemented,"\
+                    "aborting snap"
+                return 1
+                ;;
+
+            * )
+                werbe "err: no action selected,"\
+                "aborting snap"
+                return 1
+                ;;
+        esac
+    else
+        case "$action" in
+
+            "shot" )
+                tempfile="$shotdir/shot_$dateline.png"
+                maim -u "$tempfile"
+                ;;
+
+            "clip" )
+                tempfile="$shotdir/clip_$dateline.png"
+                maim -g -u "$(slop)" "$tempfile" ||
+                notify-send "err: selection cancelled\naborting snap"
+                return 1
+                ;;
+
+            "print" )
+                tempfile="$shotdir/print_$dateline.png"
+                maim "$tempfile"
+                ;;
+
+            "animate" )
+                tempfile="$shotdir/anim_$dateline.gif"
+                byzanz-record -d 10 $(slop -f "-x %x -y %y -w %w -h %h $tempfile")  ||
+                notify-send "err: animate not implemented,\naborting snap"
+                return 1
+                ;;
+
+            "record" )
+                tempfile="$shotdir/record_$dateline.mp4"
+                # ffmpeg / wrobs
+                notify-send "err: record not implemented,\naborting snap"
+                return 1
+                ;;
+
+            * )
+                notify-send "no action selected,\naborting snap"
+                return 1
+                ;;
+
+        esac
+
+        sleep 1
+        notify-send "saved snap to $tempfile"
+    fi
+}
+main "${0}"
+
+#FOCUSED=$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.focused)')
+#OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
+#WINDOW=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
+
+#getTargetDirectory() {
+#  test -f ${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs && \
+#    . ${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs
+#
+#  echo ${XDG_SCREENSHOTS_DIR:-${XDG_PICTURES_DIR:-$HOME}}
+#}
+#FILE=${3:-$(getTargetDirectory)/$(date -Ins).png}

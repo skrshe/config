@@ -1,0 +1,3 @@
+#!/bin/bash
+export FrameworkPathOverride=/etc/mono/4.5
+alacritty -e nvim "$1"
