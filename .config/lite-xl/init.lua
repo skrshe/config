@@ -1,13 +1,24 @@
+-- put user settings here
+-- this module will be loaded after everything else when the application starts
+-- it will be automatically reloaded when saved
+
 local core = require "core"
 local keymap = require "core.keymap"
 local config = require "core.config"
 local style = require "core.style"
 
+------------------------------ Themes ----------------------------------------
+
 -- light theme:
-core.reload_module("colors.scb")
+-- core.reload_module("colors.summer")
+
+--------------------------- Key bindings -------------------------------------
 
 -- key binding:
 -- keymap.add { ["ctrl+escape"] = "core:quit" }
+
+
+------------------------------- Fonts ----------------------------------------
 
 -- customize fonts:
 -- style.font = renderer.font.load(DATADIR .. "/fonts/font.ttf", 13 * SCALE)
@@ -28,10 +39,12 @@ core.reload_module("colors.scb")
 -- antialiasing: grayscale, subpixel
 -- hinting: none, slight, full
 
+------------------------------ Plugins ----------------------------------------
+
 -- enable or disable plugin loading setting config entries:
 
 -- enable trimwhitespace, otherwise it is disable by default:
-config.trimwhitespace = true
+-- config.trimwhitespace = true
 --
 -- disable detectindent, otherwise it is enabled by default
 -- config.detectindent = false
