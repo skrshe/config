@@ -6,11 +6,10 @@ local core = require "core"
 local keymap = require "core.keymap"
 local config = require "core.config"
 local style = require "core.style"
-
 ------------------------------ Themes ----------------------------------------
 
 -- light theme:
--- core.reload_module("colors.summer")
+core.reload_module("colors.scb")
 
 --------------------------- Key bindings -------------------------------------
 
@@ -44,7 +43,7 @@ local style = require "core.style"
 -- enable or disable plugin loading setting config entries:
 
 -- enable trimwhitespace, otherwise it is disable by default:
--- config.trimwhitespace = true
+config.trimwhitespace = true
 --
 -- disable detectindent, otherwise it is enabled by default
 -- config.detectindent = false
