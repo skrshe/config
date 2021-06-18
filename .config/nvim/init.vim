@@ -3,6 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'mboughaba/i3config.vim'
 Plug 'ziglang/zig.vim'
+Plug 'Tetralux/odin.vim'
+Plug 'zah/nim.vim'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'omnisharp/omnisharp-vim'
 "Plug 'plasticboy/vim-markdown' " breaks so easily
@@ -37,9 +39,11 @@ let g:netrw_localrmdir='rm -r'
 " misc
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', v:false)
+call deoplete#custom#option('ignore_case', v:true)
+" other
 let g:omnisharp_server_use_mono = 1
+let g:omnisharp_highlighting = 3
 let g:ale_linters = { 'cs': ['OmniSharp'] }
-
 
 set hidden
 set nobackup
@@ -52,7 +56,7 @@ set nowrap
 set splitbelow splitright
 set backspace=indent,eol,start
 set colorcolumn=80
-" set completeopt=noinsert,noselect
+set completeopt-=preview
 set laststatus=1
 set mouse=nicr
 set scrolloff=3
@@ -61,7 +65,6 @@ set statusline=%=%F\ %M%R%H%W%=
 set ts=4 sw=4 sts=4 et ai si
 set undodir=~/.local/nvim/undodir
 set updatetime=50
-
 
 " insert
 inoremap <silent><expr> <TAB>
