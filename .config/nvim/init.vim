@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 " file scheme and bindings
+Plug '/home/anu/wip/advancer/advancer.vim'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'mboughaba/i3config.vim'
 Plug 'ziglang/zig.vim'
@@ -7,6 +8,7 @@ Plug 'Tetralux/odin.vim'
 Plug 'zah/nim.vim'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'omnisharp/omnisharp-vim'
+" Plug 'dpelle/vim-LanguageTool'
 "Plug 'plasticboy/vim-markdown' " breaks so easily
 " tools
 Plug 'tpope/vim-surround'
@@ -16,7 +18,7 @@ Plug 'raimondi/delimitmate'
 " functionality
 Plug 'adelarsq/vim-matchit'
 " Plug 'ervandew/supertab'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " frameworks
 Plug 'mattn/emmet-vim'
@@ -41,6 +43,7 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', v:false)
 call deoplete#custom#option('ignore_case', v:true)
 " other
+let g:languagetool_jar="/usr/share/java/languagetool/languagetool-commandline.jar"
 let g:omnisharp_server_use_mono = 1
 let g:omnisharp_highlighting = 3
 let g:ale_linters = { 'cs': ['OmniSharp'] }
@@ -57,8 +60,8 @@ set splitbelow splitright
 set backspace=indent,eol,start
 set colorcolumn=80
 set completeopt-=preview
-set laststatus=1
-set mouse=nicr
+set laststatus=0
+set mouse=ar
 set scrolloff=3
 set shortmess=a
 set statusline=%=%F\ %M%R%H%W%=
@@ -149,5 +152,8 @@ augroup cmd_msg_cls
     autocmd!
     autocmd CursorHold * call timer_start(2500, funcref('s:empty_message'))
 augroup END
+
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType c setlocal commentstring=//%s
+
 " vim:ft=vim

@@ -70,7 +70,7 @@ main() {
 
             "clip" )
                 tempfile="$shotdir/clip_$dateline.png"
-                maim -g -u "$(slop)" "$tempfile" ||
+                maim -u -g "$(slop)" "$tempfile" ||
                 notify-send "err: selection cancelled\naborting snap"
                 return 1
                 ;;
