@@ -1,5 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
-" file scheme and bindings
+"lsp stuff
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+"file scheme and bindings
 Plug '/home/anu/wip/advancer/advancer.vim'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'mboughaba/i3config.vim'
@@ -9,22 +12,22 @@ Plug 'zah/nim.vim'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'omnisharp/omnisharp-vim'
 " Plug 'dpelle/vim-LanguageTool'
-"Plug 'plasticboy/vim-markdown' " breaks so easily
-" tools
+" Plug 'plasticboy/vim-markdown' " breaks so easily
+"tools
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
-" functionality
+"functionality
 Plug 'adelarsq/vim-matchit'
 " Plug 'ervandew/supertab'
 " Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " frameworks
 Plug 'mattn/emmet-vim'
-"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-"Plug 'jreybert/vimagit'
-" colors
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'jreybert/vimagit'
+"colors
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
@@ -34,7 +37,7 @@ let mapleader = " "
 " zig
 let g:zig_fmt_autosave = 0
 " netrw
-let g:netrw_browse_split = 2
+let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_localrmdir='rm -r'
@@ -141,6 +144,8 @@ hi statuslinenc ctermfg=10       ctermbg=none cterm=none,underline
 hi tabline     ctermfg=10       ctermbg=none cterm=none
 hi tablinesel  ctermfg=darkcyan ctermbg=none cterm=none
 hi tablinefill ctermfg=black    ctermbg=none cterm=none
+
+" lua require'lspconfig'.ols.setup{on_attach=require'completion'.on_attach}
 
 function! s:empty_message(timer)
   if mode() ==# 'n'

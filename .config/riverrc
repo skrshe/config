@@ -1,0 +1,80 @@
+#!/bin/sh
+
+## set
+# keybinding
+mod="Mod4"
+rbind="riverctl map"
+sup="rbind normal $mod"
+supS="$sup+Shift"
+
+# renaming
+mstrsz="mod-master-factor"
+mstrvc="mod-master-count"
+getv="focus-view"
+geto="focus-output"
+float="riverctl float-filter-add"
+chrome="riverctl csd-filter-add"
+
+# external
+run="dmenu-wl_run -p !"
+# lock=""
+# killer=""
+
+## exec
+riverctl spawn mako
+
+## map
+$sup Return spawn $TERM
+$sup Space  spawn $run
+
+$sup  Q close           #quit view
+#$supS Q spawn $killer   #kill view
+#$sup  C spawn $lock     #lock river
+$supS C exit            #close compositor
+
+$sup J $getv next
+$sup K $getv previous
+
+$sup Period $geto next
+$sup Comma  $geto previous
+
+$supS Period $seto next
+$supS Comma  $seto previous
+
+$sup M $makemstr
+
+$sup  H $mstrsz -0.05
+$sup  L $mstrsz +0.05
+$supS H $mstrvc +1
+$supS L $mstrvc -1
+
+for i in $(seq 1 9); do
+    tagmask=$((1 << ($i - 1)))
+
+    $sup $i set-focused-tags $tagmask
+    $supS $i set-view-tags $tagmask
+    $sup+Control $i toggle-focused-tags $tagmask
+    $supS+Control $i toggle-view-tags $tagmask
+done
+
+all_tags_mask=$(((1 << 32) - 1))
+$sup 0 set-focused-tags $all_tags_mask
+$supS 0 set-view-tags $all_tags_mask
+
+$supS Space toggle-float
+$sup F      toggle-fullscreen
+
+riverctl layout rivertile left
+$supS Up    layout rivertile top
+$supS Right layout rivertile right
+$supS Down  layout rivertile down
+$supS Left  layout rivertile left
+$supS F     layout full
+
+riverctl declare-mode passthrough
+$sup F11 enter-mode piss
+riverctl map piss $mod F11 enter-mode normal
+
+$float "float"
+$float "popup"
+$chrome "gedit"

@@ -1,0 +1,51 @@
+name = "Solarized Cubone Dark"
+
+back          = 0xff002b36;
+margin        = 0xff073642; // below with lower brightness
+margin_hover  = 0xff073642;
+margin_active = 0xff073642;
+
+list_item        = { 0xff073642, 0xff073642 };
+list_item_hover  = { 0xff002b36, 0xff002b36 };
+list_item_active = { 0xff2aa198, 0xff2aa198 };
+cursor           = { 0xff2aa198, 0xff2aa198 };
+
+at_cursor             = defcolor_back;
+highlight_cursor_line = 0xff073642;
+highlight             = 0xff6c7100;
+mark                  = 0xff2aa198;
+text_default          = 0xff93a1a1;
+at_highlight          = defcolor_back;
+comment               = 0xff586e75;
+comment_pop           = { 0xff00A000, 0xffA00000 };
+keyword               = 0xffdc322f;
+
+str_constant  = 0xff2aa198;
+char_constant = defcolor_str_constant;
+
+int_constant      = 0xff2aa198;
+float_constant    = defcolor_int_constant;
+bool_constant     = defcolor_int_constant;
+include           = defcolor_int_constant;
+preproc           = 0xff4E5E46;
+special_character = 0xff4E5E46;
+ghost_character   = 0xff4E5E46;
+
+paste = 0xffDDEE00;
+undo  = 0xff00DDEE;
+
+highlight_junk  = 0x33859900;
+highlight_white = 0x33859900;
+
+bar        = defcolor_back;
+bar_active = 0xff2aa198;
+
+base = 0xff657b83;
+pop1 = 0xff2aa198;
+pop2 = 0xffd33682;
+
+text_cycle =   { 0xffF01010, 0xff20D020, 0xff0080E0, 0xffD0D000 };
+back_cycle =   { 0x05A00000, 0x0500A000, 0x050000A0, 0x05A0A000 };
+
+line_numbers_back = 0xff073642;
+line_numbers_text = 0xff657b83;

@@ -1,0 +1,65 @@
+colors:
+  primary:
+    background: '0x072626'
+    foreground: '0xd3b58d'
+
+  cursor:
+    cursor: '0x90ee90'
+    text:   '0x072626'
+
+  normal:
+    black:   '0x072626'
+    red:     '0xa00000'
+    green:   '0x00a000'
+    yellow:  '0xa0a000'
+    blue:    '0x3c57dc'
+    magenta: '0xd3b58d'
+    cyan:    '0x90ee90'
+    white:   '0xfdffaf'
+  bright:
+    black:   '0x003a3a'
+    red:     '0xff0000'
+    green:   '0x3fdf1f'
+    yellow:  '0xddee00'
+    blue:    '0x00ddee'
+    magenta: '0xff44dd'
+    cyan: '0xc8d4ec'
+    white: '0xfdfdfd'
+
+  indexed_colors: []
+
+# black   003a3a
+# red     a00000
+# green   00a000
+# yellow  a0a000
+# blue    3c57dc
+# magenta d3b58d
+# cyan    90ee90
+# white   fdffaf
+# brblack   072626
+# brred     ff0000
+# brgreen   3fdf1f
+# brblue    00ddee
+# bryellow  ddee00
+# brmagenta ff44dd
+# brcyan    c8d4ec
+# brwhite   fdfdfd
+#
+# jblow theme:
+# text    brmagenta
+# key     brwhite
+# comment green
+# type    cyan
+# meta    cyan
+# number  blue
+# string  0fdfaf teal
+# bg      brblack
+#
+# bg      brblack
+# fg      brblack
+#
+# cursor     cyan
+# cursortext brblack
+#
+# pink    d3b58b
+#
