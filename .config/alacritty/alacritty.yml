@@ -8,9 +8,9 @@ colors:
   bright:
     black: '0x003a3a'
     blue: '0x00ddee'
-    cyan: '0xc8d4ec'
+    cyan: '0x90ee90'
     green: '0x3fdf1f'
-    magenta: '0xff44dd'
+    magenta: '0xf079a2'
     red: '0xff0000'
     white: '0xfdfdfd'
     yellow: '0xddee00'
@@ -21,14 +21,14 @@ colors:
   normal:
     black: '0x072626'
     blue: '0x3c57dc'
-    cyan: '0x90ee90'
+    cyan: '0x0fdfaf'
     green: '0x00a000'
     magenta: '0xd3b58d'
     red: '0xa00000'
-    white: '0xfdffaf'
+    white: '0xcdcbcd'
     yellow: '0xa0a000'
   primary:
-    background: '0x072626'
+    background: '0x0c2027'
     foreground: '0xd3b58d'
 cursor:
   style: Block

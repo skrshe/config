@@ -1,4 +1,4 @@
-## set
+# set
 set $mod Mod4
 set $sup bindsym $mod
 set $supS $sup+Shift
@@ -7,7 +7,7 @@ set $altE Mod1+Return
 set $exe exec --no-startup-id exec
 set $axe exec_always --no-startup-id exec
 
-## apps
+# apps
 #set $lck    swaylock -f -c 002b36 #; swaymsg "output * dpms off" ; swaymsg "output * dpms on"
 set $run    dmenu-wl_run -p "!"
 set $shot   grimshot save output
@@ -15,20 +15,18 @@ set $snip   grimshot save area
 set $trm    alacritty
 set $web    qutebrowser
 
-## graphics
+# graphics
 set $wal ~/doc/pix/wll/carver.jpg fill
 set $wal2 #002b36 solid_color
 
 floating_modifier $mod normal
 
-## exec
-
+# exec
 exec {
     mako
     light -S 30
     # xrdb ~/.Xresources
 }
-
 exec_always {
     export SWAYCFG=~/.config/sway/config
     gammastep -l -16.8:145.7 -t 6500K:3000K
@@ -47,8 +45,8 @@ input * {
     repeat_rate 75
     scroll_factor 1.2
 }
-# dvp dvorak-programmer
-# xkb_options "custom:esc_on_sup"
+#dvp dvorak-programmer
+#xkb_options "custom:esc_on_sup"
 
 # exec
 $sup+$altE       $exe $web
@@ -107,7 +105,6 @@ $sup+h focus left
 $sup+l focus right
 #
 $supS+tab focus mode_toggle
-# $sup+a    focus parent
 
 $supS+k move up
 $supS+j move down
@@ -130,16 +127,20 @@ $sup+down   resize grow height 10px
 $sup+left   resize shrink width 10px
 $sup+right  resize grow width 10px
 
-#increase Volume
-# bindsym XF86AudioRaiseVolume $exe "amixer -c 0 set PCM 3dB+"
-# bindsym XF86AudioLowerVolume $exe "amixer -c 0 set PCM 3dB-"
-# bindsym XF86AudioMute        $exe "amixer set Master toggle"
+# increase Volume
+#bindsym XF86AudioRaiseVolume $exe "amixer -c 0 set PCM 3dB+"
+#bindsym XF86AudioLowerVolume $exe "amixer -c 0 set PCM 3dB-"
+#bindsym XF86AudioMute        $exe "amixer set Master toggle"
 
-## config
+# config
 default_border      pixel 0
 hide_edge_borders   none
 #
 default_floating_border pixel 1
+#
+font pango:monospace 0
+titlebar_border_thickness 0
+titlebar_padding 0
 
 
 output * bg $wal
