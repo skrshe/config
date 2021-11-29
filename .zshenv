@@ -12,5 +12,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ZDOTDIR=$HOME/.config/zsh
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export WASI_SDK_PATH="/opt/wasi-sdk"
 
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"

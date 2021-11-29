@@ -1,0 +1,58 @@
+/**
+ * ROFI Color theme
+ * User: skrshe
+ */
+* {
+    base:     #073642;
+    field:    #002b36;
+    selected: #2aa198;
+    grey:     #839496;
+    white:    #eee8d5;
+
+    background-color:      @base;
+    text-color:           @grey;
+    font:            "mono bold 12";
+}
+
+window {
+    anchor:     north;
+    location:   north;
+    width:      100%;
+    padding:    0px;
+    children:   [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
+}
+
+listview {
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}
+prompt {
+    background-color: @selected;
+    text-color: @white;
+    padding: 1px 2px;
+}
+
+entry {
+    text-color: @white;
+    background-color: @field;
+    expand:     false;
+    width:      10em;
+}
+
+element {
+    padding: 1px 2px;
+}
+element selected {
+    background-color: @selected;
+    text-color: @white;
+}
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}

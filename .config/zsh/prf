@@ -1,0 +1,7 @@
+export PATH=$PATH:~/bin
+eval 'dircolors some_path/dir_colors'
+
+if [[ -z $DISPLAY && $TTY = /dev/tty1 ]]; then
+    startx
+fi
+

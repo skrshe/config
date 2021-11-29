@@ -1,0 +1,80 @@
+--          KEY           COMMAND
+-- meta
+map        '?'         :help
+map/help   '?'         :help
+map        ':'         :mode command
+map        v           :mode visual
+map        .           :zoom +
+map        ,           :zoom -
+map        /           :zoom 1.0
+map/normal j           :v/prev
+map/normal k           :v/next
+map        <tab>       :v/prev
+map        z           :v/center
+-- editing
+map        u           :undo
+map        r           :redo
+map        x           :swap
+map/normal p           :brush
+map/normal b           :flood
+map/normal e           :brush/set erase {:brush/unset erase}
+map/normal <shift>     :brush/set multi {:brush/unset multi}
+map/normal =           :brush/toggle perfect
+map/normal ]           :brush/size +
+map/normal [           :brush/size -
+map/normal <ctrl>      :tool sampler {:tool/prev}
+map/help   <space>     :tool pan {:tool/prev}
+map        <space>     :tool pan {:tool/prev}
+-- moving
+map        <up>        :pan  0  1
+map        <down>      :pan  0 -1
+map        <left>      :pan -1  0
+map        <right>     :pan  1  0
+-- frames
+map        <return>    :f/add
+map        <backspace> :f/remove
+map/normal h           :f/prev
+map/normal l           :f/next
+-- visual
+map/visual j           :selection/move    0 -1
+map/visual k           :selection/move    0  1
+map/visual h           :selection/move   -1  0
+map/visual l           :selection/move    1  0
+-- visual/edit
+map/visual ]           :selection/offset  1  1
+map/visual [           :selection/offset -1 -1
+map/visual \           :selection/expand
+map/visual f           :selection/fill
+map/visual y           :selection/yank
+map/visual d           :selection/cut
+map/visual e           :selection/erase
+map/visual p           :selection/paste
+map/visual w           :selection/jump +
+map/visual b           :selection/jump -
+
+-- general
+set scale   = 2.0
+set checker = off
+set debug   = off
+set background = #000000/0.0
+
+-- specific
+--brush/set perfect
+
+-- Color palette
+#1a1c2c
+#5d275d
+#b13e53
+#ef7d57
+#ffcd75
+#a7f070
+#38b764
+#257179
+#29366f
+#3b5dc9
+#41a6f6
+#73eff7
+#f4f4f4
+#94b0c2
+#566c86
+#333c57
